@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logical
+namespace Day6_Assignments
 {
-    internal class Programs
+     class Programs
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.WriteLine("coupon numbers");
             Console.WriteLine("enter number:");
