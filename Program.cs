@@ -6,48 +6,47 @@ using System.Threading.Tasks;
 
 namespace Day6_Assignments
 {
-     class Programs
+     class Program
     {
         public static void Main()
         {
-            Console.WriteLine("coupon numbers");
-            Console.WriteLine("enter number:");
-            int number = Convert.ToInt32(Console.ReadLine());
-            GetRandom(number);
-        }
+            Console.WriteLine("Enter 1 to convert temp. fahrenheit to celsius ");
+            Console.WriteLine("Enter 2 to convert temp. celsius to fahrenheit ");
+            int option = Convert.ToInt32(Console.ReadLine());
 
-        public static void GetRandom(int number)
+            Console.WriteLine("\nEnter a value");
+            double value = Convert.ToDouble(Console.ReadLine());
+
+            Conversion.TemperatureConversion(option, value);
+
+
+
+        }
+    }
+    class Conversion
+    {
+
+        public static void TemperatureConversion(int option, double value)
         {
-            int[] Array = new int[number];
-            int count = 0;
-            for (int i = 0; i < number; i++)
+            double temp = 0;
+            if (option == 1)
             {
-                bool same = false;
-                Random random = new Random();
-                int randomNum = random.Next(100, 999);
+                temp = (value - 32) * 5 / 9;
 
-                foreach (int num in Array)
-                {
-                    if (num == randomNum)
-                    {
-                        same = true;
-                        break;
-                    }
-
-                }
-                if (same == true && i > 0)
-                {
-                    i--;
-                }
-                else
-                {
-                    Array[i] = randomNum;
-                }
-                count++;
             }
-            Console.WriteLine($"total number of iterations: {count}");
-            Console.WriteLine(String.Join(" ", Array));
+            else if (option == 2)
+            {
+                temp = (value * 9 / 5) + 32;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input");
+            }
+
+            Console.WriteLine("\n  Ans: " + temp);
+
         }
+
 
     }
 }
