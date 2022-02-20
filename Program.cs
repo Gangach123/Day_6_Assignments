@@ -1,27 +1,53 @@
 ﻿using System;
-namespace problems
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Logical
 {
-    class Program
+    internal class Programs
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            int n, i, m = 0, flag = 0;
-            Console.Write("Enter the Number to check Prime: ");
-            n = int.Parse(Console.ReadLine());
-            m = n / 2;
-            for (i = 2; i <= m; i++)
-            {
-                if (n % i == 0)
-                {
-                    Console.Write("Number is not Prime.");
-                    flag = 1;
-                    break;
-                }
-            }
-            if (flag == 0)
-                Console.Write("Number is Prime.");
+            Console.WriteLine("coupon numbers");
+            Console.WriteLine("enter number:");
+            int number = Convert.ToInt32(Console.ReadLine());
+            GetRandom(number);
         }
 
+        public static void GetRandom(int number)
+        {
+            int[] Array = new int[number];
+            int count = 0;
+            for (int i = 0; i < number; i++)
+            {
+                bool same = false;
+                Random random = new Random();
+                int randomNum = random.Next(100, 999);
+
+                foreach (int num in Array)
+                {
+                    if (num == randomNum)
+                    {
+                        same = true;
+                        break;
+                    }
+
+                }
+                if (same == true && i > 0)
+                {
+                    i--;
+                }
+                else
+                {
+                    Array[i] = randomNum;
+                }
+                count++;
+            }
+            Console.WriteLine($"total number of iterations: {count}");
+            Console.WriteLine(String.Join(" ", Array));
+        }
 
     }
 }
