@@ -8,31 +8,20 @@ namespace Day6_Assignments
 {
      class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Enter no of year");
-            double Y = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("\nEnter principal");
-            double P = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("\nEnter interest rate");
-            double R = Convert.ToDouble(Console.ReadLine());
+            int num, reverse = 0, rem;
+            Console.WriteLine("Enter the num ");
+            num = Convert.ToInt32(Console.ReadLine());
 
-            payment.MonthlyPayment(Y, P, R);
-
+            while (num != 0)
+            {
+                rem = num % 10;
+                reverse = reverse * 10 + rem;
+                num /= 10;
+            }
+            Console.WriteLine("Reverse the number " + reverse);
         }
-    }
-
-    class payment
-    {
-        public static void MonthlyPayment(double Y, double P, double R)
-        {
-            double n = 12 * Y;
-            double r = R / (12 * 100);
-
-            double payment = P * r / (1 - Math.Pow((1 + r), (-n)));
-            Console.WriteLine("\nPayment:" + payment);
-        }
-
 
     }
 }
