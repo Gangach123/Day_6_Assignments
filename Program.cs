@@ -10,17 +10,11 @@ namespace Day6_Assignments
     {
         public static void Main()
         {
-            int num, reverse = 0, rem;
-            Console.WriteLine("Enter the num ");
-            num = Convert.ToInt32(Console.ReadLine());
-
-            while (num != 0)
-            {
-                rem = num % 10;
-                reverse = reverse * 10 + rem;
-                num /= 10;
-            }
-            Console.WriteLine("Reverse the number " + reverse);
+            Console.WriteLine("Enter a Number : ");
+            int Number = Convert.ToInt16(Console.ReadLine());
+            double SqrtNumber = Math.Sqrt(Number);
+            Console.WriteLine("Square root of {0} is: {1}", Number, SqrtNumber);
+            Console.ReadLine();
         }
 
     }
